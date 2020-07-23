@@ -1,5 +1,6 @@
-#include <iostream>
+
+#include "shioaji.h"
 
 int main(){
-    std::cout << "simple executable program.\n";
+    expose_api_func();
 }

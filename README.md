@@ -1,15 +1,21 @@
 # ShioajiCpp4Tutorial
 
 
-### first step
+### build the share library
 
 ```
-g++ main.cpp -o simple
-./simple
+g++ -shared -fPIC -I include src/shioaji.cpp -o libshioaji.so
+```
+
+### use share library in excutable
+
+```
+g++ main.cpp -I include -L . -lshioaji -o simple
 ```
 
 ### put it into Makefile
 ```
-make simple
+make clean
+make
 ./simple
 ```
