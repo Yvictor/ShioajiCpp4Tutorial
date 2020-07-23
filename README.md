@@ -1,19 +1,33 @@
 # ShioajiCpp4Tutorial
 
+#### in this section we directly use Makefile to manage the command
 
-### build the share library
-
-```
-g++ -shared -fPIC -I include src/shioaji.cpp -o libshioaji.so
-```
-
-### use share library in excutable
+### prepare the solclient library for later use
 
 ```
-g++ main.cpp -I include -L . -lshioaji -o simple
+make prepare-solace-lib
 ```
 
-### put it into Makefile
+### build our share library with static link to solclient
+
+See the compiler change detail inside Makefile
+
+```
+make shioaji-static
+```
+
+### build our share library with dynamic link to solclient
+
+```
+make shioaji
+```
+
+### check the link of solclient
+```
+ldd libshioaji.so
+```
+
+### make simple without change
 ```
 make clean
 make
