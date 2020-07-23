@@ -1,5 +1,4 @@
 
-
 simple:
 	g++ main.cpp -o simple
 
