@@ -12,11 +12,11 @@ prepare-solace-lib:
 	tar xvzf solclient.tar.gz
 
 simple:
-	g++ $(CPPFLAGS) main.cpp -I include -L . -lshioaji -o simple
+	g++ $(CPPFLAGS) main.cpp -I include -L . -lshioaji -Wl,-rpath='$$ORIGIN' -o simple
 
 
 shioaji: src/shioaji.cpp
-	g++ $^ $(CPPFLAGS_SHARED) $(CPPFLAGS_SOL) -I include -o libshioaji.so
+	g++ $^ $(CPPFLAGS_SHARED) $(CPPFLAGS_SOL) -Wl,-rpath='$$ORIGIN:solclient-7.14.0.8/lib/' -I include -o libshioaji.so
 
 
 shioaji-static: src/shioaji.cpp
